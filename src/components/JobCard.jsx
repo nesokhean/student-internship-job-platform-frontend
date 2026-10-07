@@ -4,17 +4,6 @@ import { MapPin, Clock, Banknote, Bookmark, ArrowRight } from 'lucide-react'
 import { getCompany, fmtDate, pay } from '../utils/helpers.js'
 import { useAuth } from '../hooks/useAuth.js'
 
-/**
- * Company logo, shared by cards and the detail page.
- *
- * Renders the company's bundled logo inside a light "logo chip" (see
- * .company-logo in index.css) so the artwork is never stretched or cropped.
- * Companies without artwork - or a logo that fails to load - fall back to the
- * coloured monogram avatar they used before.
- *
- * `size` is the tile size (utility classes) and `initialClass` sizes the letter
- * of that fallback to the same tile.
- */
 export function Logo({ company, size = 'h-12 w-12', initialClass = 'text-lg' }) {
   const [failed, setFailed] = useState(false)
 

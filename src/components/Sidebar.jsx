@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 
-/** Dashboard navigation. Active items get the brand gradient pill. */
 export default function Sidebar({ items = [], onNavigate }) {
   const cls = ({ isActive }) =>
     `group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition duration-200 ${

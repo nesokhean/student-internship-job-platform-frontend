@@ -1,7 +1,7 @@
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '../hooks/useTheme.js'
 
-/** Light/dark switch with a cross-fading sun & moon. */
+
 export default function ThemeToggle({ className = '' }) {
   const { isDark, toggle } = useTheme()
   return (

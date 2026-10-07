@@ -1,6 +1,6 @@
 import { Loader2 } from 'lucide-react'
 
-/** Centered spinner with a soft pulsing halo. */
+
 export default function Loading({ label = 'Loading…', className = 'py-16' }) {
   return (
     <div className={`flex flex-col items-center justify-center gap-3 text-muted ${className}`} role="status" aria-live="polite">

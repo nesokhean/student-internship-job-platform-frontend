@@ -1,12 +1,5 @@
 import { MapPin, ExternalLink } from 'lucide-react'
 
-/* ---------- Google Maps embed, no API key ----------
-   Google's own "Share -> Embed a map" dialog produces exactly this URL, so it
-   runs without a Cloud project, an API key or a billing account. Google keeps
-   control of the tiles; switch to the Maps JavaScript API only if you ever
-   need custom markers, clustering or tiles themed to the brand.
-   A place name only resolves when Google knows it, so pass something real
-   (a town, a street address, or "lat,lng") - never a made-up company name. */
 
 export const mapSrc = (query, zoom = 13) =>
   `https://www.google.com/maps?q=${encodeURIComponent(query)}&z=${zoom}&output=embed`

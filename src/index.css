@@ -186,18 +186,9 @@
     }
 }
 
-/* =============================================================
-   Components — the shared vocabulary used across every page
-   ============================================================= */
+
 @layer components {
 
-    /* ---------- Brand logo ---------- */
-    /* The KhmerCareer mark (see components/BrandLogo.jsx): a rounded badge
-       painted with the brand's blue gradient. The stops are
-       literal hex values instead of theme tokens on purpose — a logo must
-       look the same in light and dark mode, and white-on-blue always
-       clears 4.5:1. Size, radius, shadow and motion come from the caller, so
-       the navbar, footer, auth panel and dashboard render one single mark. */
     .brand-mark {
         @apply grid shrink-0 place-items-center rounded-xl text-white;
         background-image: linear-gradient(135deg, #1d4ed8 0%, #2563eb 46%, #0ea5e9 100%);
@@ -216,11 +207,7 @@
         @apply rounded-card border border-line bg-surface p-6 shadow-soft;
     }
 
-    /* ---------- Company logo ----------
-       Fixed-size light "logo chip": the artwork is contained (never stretched
-       or cropped) and companies without a logo fall back to their coloured
-       monogram (see components/JobCard.jsx -> Logo). The tile size comes from
-       the caller, e.g. `company-logo h-[4.75rem] w-[4.75rem]` for 76px. */
+    
     .company-logo {
         @apply grid shrink-0 place-items-center overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-soft;
     }
@@ -311,33 +298,16 @@
         @apply bg-clip-text text-transparent;
     }
 
-    /* Hero artwork: feather the bitmap edges and nudge its colour toward the
-       brand indigo so it dissolves into the dark hero instead of reading as a
-       pasted rectangle. */
     .hero-art {
         -webkit-mask-image: radial-gradient(76% 76% at 50% 46%, #000 44%, transparent 90%);
         mask-image: radial-gradient(76% 76% at 50% 46%, #000 44%, transparent 90%);
         filter: saturate(1.05) brightness(1.03) contrast(1.02);
     }
 
-    /* Blue duotone for the hero illustration: a grayscale base re-tinted into
-       the brand blue so full-colour artwork sits inside the palette instead of
-       fighting it. Used on the home hero figure. */
     .hero-duotone {
         filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(2.4) brightness(0.96) contrast(1.05);
     }
 
-    /* Closing "Ready to apply?" panel on the home page.
-       The artwork sits at the very back of the rounded panel (cover + centred,
-       so it never distorts and stays responsive at any width). A near-black ->
-       indigo wash is stacked *above* it so the copy, buttons and the
-       "Free for students, always." line stay perfectly readable, and the
-       .aurora + radial-glow layers already inside the section keep the brand
-       purple/blue bloom on top of the photo.
-
-       Drop your picture in as public/images/cta-bg.png (a .jpg / .jpeg / .webp
-       with the same name works too — the first file that exists wins). Until a
-       file is added the panel simply falls back to the plain dark gradient. */
     .cta-panel {
         background-image:
             linear-gradient(180deg,
@@ -388,21 +358,13 @@
 }
 
 
-
-
-/* ---------- Google Sign-In ----------
-   The official Google button is rendered invisibly on top of our own styled
-   button (see GoogleAuthButton.jsx), so the iframe must fill the wrapper. */
 .google-signin iframe {
     width: 100% !important;
     height: 100% !important;
     border-radius: 9999px;
 }
 
-/* ---------- Google Maps embed ----------
-   Keyless iframe embed (see components/MapEmbed.jsx). Google paints its tiles
-   in its own light theme, so in dark mode we tone it down rather than invert
-   every road and river. */
+
 .map-embed iframe {
     display: block;
     width: 100%;
@@ -412,12 +374,4 @@
 .dark .map-embed iframe {
     filter: brightness(0.88) contrast(1.05);
 }
-
-/* Prefer a genuinely dark map? Google's embed has no dark theme, so replace the
-   rule above with this well-known inversion trick:
-
-   .dark .map-embed iframe {
-       filter: invert(0.9) hue-rotate(180deg) saturate(0.85) brightness(1.05);
-   }
-*/
 

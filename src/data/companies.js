@@ -7,12 +7,6 @@ import sovannaEducation from '../assets/companies/sovanna-education.png'
 import lotusMarketing from '../assets/companies/lotus-marketing.png'
 import greenCambodia from '../assets/companies/green-cambodia.png'
 
-/* Company logo art lives in src/assets/companies and is bundled by Vite, which
-   returns a hashed URL for every import. To switch to the real logos, drop the
-   new PNG/WebP over the same file names - no code change needed. A company
-   without a logo simply omits it and the card falls back to its monogram.
-
-   Row columns: name, industry, location, website, about, brand colour, logo */
 export const companies = [
   ['Angkor Digital', 'Technology', 'Phnom Penh', 'angkordigital.example.com', 'Software studio building web and mobile products for banks, NGOs and retailers across Cambodia.', '#2563EB', angkorDigital],
   ['Mekong Finance', 'Finance', 'Phnom Penh', 'mekongfinance.example.com', 'Microfinance and digital payments provider serving more than 400,000 customers nationwide.', '#0EA5E9', mekongFinance],

@@ -1,5 +1,5 @@
 import { daysAgo, details } from '../utils/helpers.js'
-// title, companyId, location, category, type, min, max, daysAgo, duration, skills
+
 const rows = [
   ['Web Development Intern', 1, 'Phnom Penh', 'Technology', 'On-site', 100, 200, 1, '3 months', ['HTML/CSS', 'React', 'Git']],
   ['Social Media Intern', 7, 'Phnom Penh', 'Marketing', 'Hybrid', 80, 150, 2, '3 months', ['Canva', 'Content Planning', 'Facebook']],

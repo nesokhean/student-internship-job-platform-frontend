@@ -36,17 +36,6 @@ function GoogleMark() {
   )
 }
 
-/**
- * "Continue with Google" (Google Identity Services).
- *
- * Google's own button is rendered invisibly on top of our styled button, so the
- * control keeps the design system's look while the click still runs Google's
- * supported flow — no custom OAuth code, no pop-up blockers.
- *
- * Needs VITE_GOOGLE_CLIENT_ID (see .env). The button always renders; until the
- * client ID is set it explains what is missing instead of failing silently.
- * `onCredential` receives the Google ID token (a JWT) to forward to the API.
- */
 export default function GoogleAuthButton({
   onCredential,
   onError,

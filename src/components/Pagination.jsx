@@ -2,10 +2,7 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-r
 
 const GAP = '…'
 
-/**
- * Builds the visible page slots: always the first + last page, the current page
- * and one neighbour on each side, with `…` markers where numbers are skipped.
- */
+
 function slots(page, pages) {
   if (pages <= 7) return Array.from({ length: pages }, (_, i) => i + 1)
   const keep = new Set([1, pages, page, page - 1, page + 1])
@@ -23,10 +20,7 @@ const numBase = 'grid h-9 min-w-9 place-items-center rounded-xl px-2 text-sm fon
 const num = `${numBase} text-ink hover:bg-primary-50 hover:text-primary`
 const active = `${numBase} bg-gradient-to-br from-primary to-secondary text-white shadow-glow ring-1 ring-inset ring-white/25`
 
-/**
- * Segmented page switcher. Optional `total` + `perPage` add a result-range
- * caption underneath (e.g. "Showing 1–6 of 14 results").
- */
+
 export default function Pagination({ page, pages, onChange, total, perPage, label = 'results', className = '' }) {
   if (pages <= 1) return null
 

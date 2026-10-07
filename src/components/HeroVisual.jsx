@@ -10,19 +10,8 @@ import {
   User,
 } from 'lucide-react'
 
-/* ------------------------------------------------------------------
-   Hero artwork — a connected "students ⇄ companies" network.
-
-   If you drop the illustration file at `public/images/hero-network.png`
-   it is used automatically (masked + colour-graded to the brand palette).
-   Until that file exists the vector mesh below renders instead, so the
-   hero never shows a broken image and never collapses.
-   ------------------------------------------------------------------ */
 const ART_SRC = '/images/hero-network.png'
 
-/* The SVG mesh and the HTML bubbles share one coordinate system, so they can
-   never drift apart. Every value is in viewBox units: x spans 0..VIEW_W and
-   y spans 0..VIEW_H, which also makes `size` a percentage of the box width. */
 const VIEW_W = 100
 const VIEW_H = 71
 
@@ -144,8 +133,7 @@ export default function HeroVisual() {
   const [hasArt, setHasArt] = useState(false)
   const [shown, setShown] = useState(false)
 
-  /* Probe the optional bitmap before mounting it, so a missing file degrades
-     silently to the vector mesh instead of flashing a broken image. */
+
   useEffect(() => {
     let alive = true
     const probe = new Image()
