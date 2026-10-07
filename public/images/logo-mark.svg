@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="KhmerCareer">
+  <title>KhmerCareer</title>
+  <!--
+    KhmerCareer logo mark — the badge with its graduation cap,
+    transparent background.
+    Used as the site favicon (index.html) and inline as `.brand-mark` art
+    (see src/components/BrandLogo.jsx). Keep the geometry in sync with
+    `BrandMark` in that file.
+  -->
+  <defs>
+    <!-- objectBoundingBox (the default) so the gradient is independent of
+         scaling: 0,0 -> 1,1 is the top-left -> bottom-right diagonal, which
+         matches `linear-gradient(135deg, …)` in .brand-mark. -->
+    <linearGradient id="kc-mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset=".46" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="15" fill="url(#kc-mark)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 21.5 24 13.5 39 21.5 24 29.5Z"/>
+    <path d="M15 25 V34.5 H33 V25"/>
+    <path d="M38.7 21.9 V29.5"/>
+    <circle cx="38.7" cy="31.5" r="2.1" fill="#ffffff" stroke="none"/>
+  </g>
+</svg>

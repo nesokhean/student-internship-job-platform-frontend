@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600" role="img" aria-labelledby="ahTitle ahDesc">
+  <title id="ahTitle">Internships and graduate careers</title>
+  <desc id="ahDesc">A graduation cap, a briefcase, a growing bar chart, a location pin and a paper plane flying along a dotted path — the journey from study to a first job.</desc>
+
+  <defs>
+    <!-- Page wash -->
+    <linearGradient id="ahBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff" />
+      <stop offset="55%" stop-color="#dbeafe" />
+      <stop offset="100%" stop-color="#e0f2fe" />
+    </linearGradient>
+
+    <!-- Soft violet glow in the middle -->
+    <radialGradient id="ahGlow" cx="50%" cy="49%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.40" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Brand line (indigo -> violet) -->
+    <linearGradient id="ahLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Solid fills -->
+    <linearGradient id="ahCap" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="ahBar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.40" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Faint dotted texture -->
+    <pattern id="ahDots" width="90" height="90" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="3" fill="#1d4ed8" opacity="0.16" />
+    </pattern>
+
+    <!-- Reusable 4-point sparkle (unit box, -1..1) -->
+    <path id="ahSpark" d="M0,-1 L0.18,-0.18 L1,0 L0.18,0.18 L0,1 L-0.18,0.18 L-1,0 L-0.18,-0.18 Z" />
+  </defs>
+
+  <!-- Background wash + texture + glow -->
+  <rect width="1200" height="1600" fill="url(#ahBg)" />
+  <rect width="1200" height="1600" fill="url(#ahDots)" />
+  <circle cx="600" cy="780" r="660" fill="url(#ahGlow)" />
+
+  <!-- Concentric journey rings -->
+  <g fill="none" stroke="url(#ahLine)" stroke-width="10">
+    <circle cx="600" cy="780" r="430" opacity="0.22" />
+    <circle cx="600" cy="780" r="340" opacity="0.16" />
+  </g>
+
+  <!-- Dotted travel path arcing from bottom-left up to the paper plane -->
+  <path d="M110 1210 C380 940 780 900 1090 520"
+        fill="none" stroke="#3b82f6" stroke-width="10"
+        stroke-dasharray="4 26" stroke-linecap="round" opacity="0.7" />
+
+  <!-- Depth blobs behind the key symbols -->
+  <circle cx="600" cy="430" r="230" fill="#2563eb" opacity="0.10" />
+  <circle cx="600" cy="880" r="205" fill="#3b82f6" opacity="0.08" />
+
+  <!-- Growth chart (bottom-left) -->
+  <g fill="url(#ahBar)">
+    <rect x="250" y="1290" width="88" height="150" rx="22" />
+    <rect x="368" y="1210" width="88" height="230" rx="22" />
+    <rect x="486" y="1120" width="88" height="320" rx="22" />
+    <rect x="604" y="1010" width="88" height="430" rx="22" />
+  </g>
+  <path d="M294 1270 L412 1190 L530 1100 L648 990"
+        fill="none" stroke="#3b82f6" stroke-width="22"
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+  <path d="M599 1005 L648 990 L629 1037"
+        fill="none" stroke="#3b82f6" stroke-width="22"
+        stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+
+  <!-- Graduation cap -->
+  <path d="M462 452 v80 q138 74 276 0 v-80" fill="#1d4ed8" />
+  <polygon points="600,330 812,428 600,526 388,428" fill="url(#ahCap)" />
+  <path d="M812 428 v130" fill="none" stroke="#3b82f6" stroke-width="12" stroke-linecap="round" />
+  <circle cx="812" cy="574" r="20" fill="#3b82f6" />
+
+  <!-- Briefcase -->
+  <path d="M540 780 v-30 a60 60 0 0 1 120 0 v30"
+        fill="none" stroke="url(#ahLine)" stroke-width="16" stroke-linecap="round" />
+  <rect x="460" y="780" width="280" height="190" rx="30"
+        fill="#ffffff" stroke="url(#ahLine)" stroke-width="16" />
+  <rect x="588" y="848" width="34" height="64" rx="12" fill="#3b82f6" />
+
+  <!-- Location pin -->
+  <path d="M955 1110 c-54 0 -98 44 -98 98 c0 74 98 186 98 186 c0 0 98 -112 98 -186 c0 -54 -44 -98 -98 -98 z"
+        fill="#ffffff" stroke="url(#ahLine)" stroke-width="16" />
+  <circle cx="955" cy="1208" r="32" fill="#3b82f6" />
+
+  <!-- Paper plane -->
+  <g transform="translate(1000 462) rotate(-30)">
+    <polygon points="0,0 130,44 30,60 8,104" fill="url(#ahCap)" />
+    <path d="M8 104 L30 60 L130 44" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.55" />
+  </g>
+
+  <!-- Accents -->
+  <g fill="#3b82f6">
+    <use href="#ahSpark" transform="translate(300,640) scale(34)" opacity="0.90" />
+    <use href="#ahSpark" transform="translate(1030,880) scale(28) rotate(18)" fill="#2563eb" opacity="0.80" />
+    <use href="#ahSpark" transform="translate(880,300) scale(22) rotate(-12)" opacity="0.70" />
+    <use href="#ahSpark" transform="translate(170,1010) scale(20) rotate(8)" fill="#2563eb" opacity="0.70" />
+  </g>
+  <g fill="#2563eb">
+    <circle cx="360" cy="900" r="13" opacity="0.45" />
+    <circle cx="1000" cy="700" r="11" opacity="0.50" fill="#3b82f6" />
+    <circle cx="770" cy="1260" r="15" opacity="0.35" />
+    <circle cx="200" cy="780" r="9" opacity="0.50" fill="#3b82f6" />
+    <circle cx="1085" cy="1010" r="10" opacity="0.40" />
+  </g>
+</svg>

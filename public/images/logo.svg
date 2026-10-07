@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="96" viewBox="0 0 380 96" role="img" aria-label="KhmerCareer">
+  <title>KhmerCareer</title>
+  <!--
+    KhmerCareer logo lockup — mark + wordmark on a white background.
+    The wordmark is live text (Inter, falling back to the system UI font),
+    not outlined, so it renders crisply at any size but does depend on the
+    font: outline the text before print or use in a design tool.
+    The app itself renders this same lockup with BrandLogo.jsx.
+  -->
+  <defs>
+    <linearGradient id="kc-logo-mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset=".46" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="380" height="96" fill="#ffffff"/>
+
+  <!-- badge: the 48-unit mark scaled to 72px, at 12,12 -->
+  <g transform="translate(12 12) scale(1.5)">
+    <rect width="48" height="48" rx="15" fill="url(#kc-logo-mark)"/>
+    <g fill="none" stroke="#ffffff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 21.5 24 13.5 39 21.5 24 29.5Z"/>
+      <path d="M15 25 V34.5 H33 V25"/>
+      <path d="M38.7 21.9 V29.5"/>
+      <circle cx="38.7" cy="31.5" r="2.1" fill="#ffffff" stroke="none"/>
+    </g>
+  </g>
+
+  <!-- wordmark: "Khmer" in ink, "Career" in the brand violet -->
+  <g font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2">
+    <text x="98" y="61.5" fill="#0a0a0a">Khmer<tspan fill="#2563eb">Career</tspan></text>
+  </g>
+</svg>

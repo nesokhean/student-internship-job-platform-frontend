@@ -1,0 +1,423 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import 'tailwindcss';
+
+/* class-based dark mode: `dark:` now matches any element inside .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* ---------- Typography ---------- */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    /* ---------- Brand: blue ---------- */
+    --color-primary: #2563eb;
+    --color-primary-600: #1d4ed8;
+    --color-primary-700: #1e40af;
+    --color-primary-50: #eff6ff;
+    --color-secondary: #0a0a0a;
+    --color-accent: #0ea5e9;
+    --color-gold: #f59e0b;
+
+    /* ---------- Always-dark brand surface (footer / CTA / hero) ---------- */
+    --color-dark: #0a0a0a;
+    --color-dark-2: #171717;
+
+    /* ---------- Semantic, themeable surfaces ---------- */
+    --color-surface: #ffffff;
+    --color-surface-2: #f6f6f7;
+    --color-line: #e4e4e7;
+    --color-heading: #0a0a0a;
+    --color-ink: #27272a;
+    --color-muted: #71717a;
+
+    /* ---------- Shape + depth ---------- */
+    --radius-card: 1rem;
+    --shadow-soft: 0 1px 2px rgb(10 10 10 / 0.04), 0 8px 24px -16px rgb(10 10 10 / 0.16);
+    --shadow-lift: 0 2px 6px rgb(10 10 10 / 0.06), 0 22px 44px -24px rgb(37 99 235 / 0.40);
+    --shadow-glow: 0 10px 26px -12px rgb(37 99 235 / 0.55);
+
+    /* ---------- Motion ---------- */
+    --animate-fade-up: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    --animate-fade-in: fade-in 0.4s ease both;
+    --animate-float: float 9s ease-in-out infinite;
+    --animate-shimmer: shimmer 1.5s linear infinite;
+    --animate-pop: pop 0.34s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    --animate-ring: ring 2.4s ease-out infinite;
+    --animate-breathe: breathe 11s ease-in-out infinite;
+    --animate-marquee: marquee 34s linear infinite;
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(0, -20px, 0) scale(1.05); }
+}
+@keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+@keyframes pop {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes ring {
+    0% { box-shadow: 0 0 0 0 rgb(37 99 235 / 0.40); }
+    70% { box-shadow: 0 0 0 16px rgb(37 99 235 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(37 99 235 / 0); }
+}
+@keyframes breathe {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(0, -10px, 0) scale(1.015); }
+}
+/* Infinite, seamless logo strip (two identical tracks slide left one full width). */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* ---------- Dark theme: re-map the semantic tokens only ---------- */
+.dark {
+    color-scheme: dark;
+    --color-surface: #0f0f10;
+    --color-surface-2: #08080a;
+    --color-line: #27272a;
+    --color-heading: #fafafa;
+    --color-ink: #d4d4d8;
+    --color-muted: #a1a1aa;
+    --color-primary: #60a5fa;
+    --color-primary-600: #93c5fd;
+    --color-primary-700: #bfdbfe;
+    --color-primary-50: #1e3a8a;
+    --color-secondary: #1e3a8a;
+    --color-accent: #38bdf8;
+    --color-dark: #050506;
+    --color-dark-2: #0f0f10;
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px -14px rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 2px 6px rgb(0 0 0 / 0.45), 0 24px 48px -22px rgb(0 0 0 / 0.75);
+    --shadow-glow: 0 10px 28px -12px rgb(96 165 250 / 0.6);
+}
+
+/* =============================================================
+   Base
+   ============================================================= */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply bg-surface-2 font-sans text-ink antialiased;
+        margin: 0;
+        min-width: 320px;
+        min-height: 100vh;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-display font-extrabold text-heading;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    ::selection {
+        background: color-mix(in oklab, var(--color-primary) 24%, transparent);
+        color: var(--color-heading);
+    }
+
+    :focus-visible {
+        outline: 2px solid color-mix(in oklab, var(--color-primary) 70%, transparent);
+        outline-offset: 2px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: color-mix(in oklab, var(--color-muted) 35%, transparent);
+        background-clip: content-box;
+        border: 3px solid transparent;
+        border-radius: 999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in oklab, var(--color-muted) 60%, transparent);
+        background-clip: content-box;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+}
+
+/* =============================================================
+   Components — the shared vocabulary used across every page
+   ============================================================= */
+@layer components {
+
+    /* ---------- Brand logo ---------- */
+    /* The KhmerCareer mark (see components/BrandLogo.jsx): a rounded badge
+       painted with the brand's blue gradient. The stops are
+       literal hex values instead of theme tokens on purpose — a logo must
+       look the same in light and dark mode, and white-on-blue always
+       clears 4.5:1. Size, radius, shadow and motion come from the caller, so
+       the navbar, footer, auth panel and dashboard render one single mark. */
+    .brand-mark {
+        @apply grid shrink-0 place-items-center rounded-xl text-white;
+        background-image: linear-gradient(135deg, #1d4ed8 0%, #2563eb 46%, #0ea5e9 100%);
+    }
+
+    /* ---------- Surfaces ---------- */
+    .card {
+        @apply rounded-card border border-line bg-surface shadow-soft;
+    }
+
+    .card-hover {
+        @apply transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lift;
+    }
+
+    .panel {
+        @apply rounded-card border border-line bg-surface p-6 shadow-soft;
+    }
+
+    /* ---------- Company logo ----------
+       Fixed-size light "logo chip": the artwork is contained (never stretched
+       or cropped) and companies without a logo fall back to their coloured
+       monogram (see components/JobCard.jsx -> Logo). The tile size comes from
+       the caller, e.g. `company-logo h-[4.75rem] w-[4.75rem]` for 76px. */
+    .company-logo {
+        @apply grid shrink-0 place-items-center overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-soft;
+    }
+
+    .company-logo img {
+        @apply h-full w-full object-contain;
+    }
+
+    /* ---------- Buttons: one base + skins ---------- */
+    .btn,
+    .btn-primary,
+    .btn-ghost,
+    .btn-soft,
+    .btn-dark,
+    .btn-danger {
+        @apply inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/45 focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        @apply text-white shadow-glow hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-lift active:translate-y-0;
+    }
+
+    .btn-ghost {
+        @apply border border-line bg-surface text-ink hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary-50/60 hover:text-primary hover:shadow-soft;
+    }
+
+    .btn-soft {
+        @apply bg-primary-50 text-primary hover:bg-primary/15;
+    }
+
+    .btn-dark {
+        @apply bg-dark text-white hover:bg-dark-2;
+    }
+
+    .btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700;
+    }
+
+    .btn-sm {
+        @apply rounded-full px-3.5 py-1.5 text-xs;
+    }
+
+    .btn-lg {
+        @apply rounded-full px-7 py-3 text-base;
+    }
+
+    .btn-icon {
+        @apply h-10 w-10 px-0;
+    }
+
+    /* ---------- Form controls ---------- */
+    .input {
+        @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm text-heading shadow-sm outline-none transition duration-200 placeholder:text-muted/65 hover:border-primary/35 focus:border-primary focus:ring-4 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .label {
+        @apply mb-1.5 block text-sm font-semibold text-heading;
+    }
+
+    /* ---------- Pills ---------- */
+    .tag {
+        @apply inline-flex items-center gap-1 rounded-full bg-primary-50 px-2.5 py-1 text-xs font-semibold text-primary ring-1 ring-inset ring-primary/15;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset;
+    }
+
+    .badge-neutral {
+        @apply bg-surface-2 text-muted ring-line;
+    }
+
+    /* ---------- Decorative effects ---------- */
+    .glass {
+        @apply border-b border-line bg-surface/85 backdrop-blur-xl;
+    }
+
+    .aurora {
+        background-image:
+            radial-gradient(58% 58% at 12% 18%, rgb(37 99 235 / 0.50) 0%, transparent 62%),
+            radial-gradient(52% 52% at 86% 12%, rgb(14 165 233 / 0.40) 0%, transparent 62%),
+            radial-gradient(58% 58% at 68% 88%, rgb(29 78 216 / 0.42) 0%, transparent 62%);
+    }
+
+    .gradient-text {
+        background-image: linear-gradient(100deg, var(--color-accent), var(--color-primary) 55%, #93c5fd);
+        @apply bg-clip-text text-transparent;
+    }
+
+    /* Hero artwork: feather the bitmap edges and nudge its colour toward the
+       brand indigo so it dissolves into the dark hero instead of reading as a
+       pasted rectangle. */
+    .hero-art {
+        -webkit-mask-image: radial-gradient(76% 76% at 50% 46%, #000 44%, transparent 90%);
+        mask-image: radial-gradient(76% 76% at 50% 46%, #000 44%, transparent 90%);
+        filter: saturate(1.05) brightness(1.03) contrast(1.02);
+    }
+
+    /* Blue duotone for the hero illustration: a grayscale base re-tinted into
+       the brand blue so full-colour artwork sits inside the palette instead of
+       fighting it. Used on the home hero figure. */
+    .hero-duotone {
+        filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(2.4) brightness(0.96) contrast(1.05);
+    }
+
+    /* Closing "Ready to apply?" panel on the home page.
+       The artwork sits at the very back of the rounded panel (cover + centred,
+       so it never distorts and stays responsive at any width). A near-black ->
+       indigo wash is stacked *above* it so the copy, buttons and the
+       "Free for students, always." line stay perfectly readable, and the
+       .aurora + radial-glow layers already inside the section keep the brand
+       purple/blue bloom on top of the photo.
+
+       Drop your picture in as public/images/cta-bg.png (a .jpg / .jpeg / .webp
+       with the same name works too — the first file that exists wins). Until a
+       file is added the panel simply falls back to the plain dark gradient. */
+    .cta-panel {
+        background-image:
+            linear-gradient(180deg,
+                rgb(10 10 10 / 0.88) 0%,
+                rgb(10 18 40 / 0.80) 50%,
+                rgb(23 37 84 / 0.90) 100%),
+            url('/images/cta-bg.png'),
+            url('/images/cta-bg.jpg'),
+            url('/images/cta-bg.jpeg'),
+            url('/images/cta-bg.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .skeleton {
+        @apply relative overflow-hidden rounded-xl bg-line/70;
+    }
+
+    .skeleton::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.45), transparent);
+        animation: var(--animate-shimmer);
+    }
+
+    .dark .skeleton::after {
+        background-image: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.08), transparent);
+    }
+
+    /* ---------- Tables ---------- */
+    .table {
+        @apply w-full border-collapse text-left text-sm;
+    }
+
+    .table thead th {
+        @apply border-b border-line px-5 py-3 text-xs font-semibold uppercase tracking-wider text-muted;
+    }
+
+    .table tbody tr {
+        @apply border-b border-line/70 transition last:border-0 hover:bg-primary-50/40;
+    }
+
+    .table tbody td {
+        @apply px-5 py-3.5;
+    }
+}
+
+
+
+
+/* ---------- Google Sign-In ----------
+   The official Google button is rendered invisibly on top of our own styled
+   button (see GoogleAuthButton.jsx), so the iframe must fill the wrapper. */
+.google-signin iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 9999px;
+}
+
+/* ---------- Google Maps embed ----------
+   Keyless iframe embed (see components/MapEmbed.jsx). Google paints its tiles
+   in its own light theme, so in dark mode we tone it down rather than invert
+   every road and river. */
+.map-embed iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+.dark .map-embed iframe {
+    filter: brightness(0.88) contrast(1.05);
+}
+
+/* Prefer a genuinely dark map? Google's embed has no dark theme, so replace the
+   rule above with this well-known inversion trick:
+
+   .dark .map-embed iframe {
+       filter: invert(0.9) hue-rotate(180deg) saturate(0.85) brightness(1.05);
+   }
+*/
+
